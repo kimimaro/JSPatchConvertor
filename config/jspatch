@@ -1,0 +1,18 @@
+server {
+    listen 80;
+    server_name jspatch.402v.com;
+
+    root /var/www/JSPatchConvertor;
+
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+    
+    location ~ ^/(img|images|fonts|javascript|js|css|flash|media|static)/  {
+        root        /var/www/JSPatchConvertor;
+        access_log  off;
+        expires     30d;
+    }
+}
